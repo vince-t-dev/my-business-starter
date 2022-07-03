@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/__xpr__/pub_engine/my-business-starter/web/static/css/main.13baea2d.css",
+    "main.js": "/__xpr__/pub_engine/my-business-starter/web/static/js/main.5a77b239.js",
+    "static/media/loader.gif": "/__xpr__/pub_engine/my-business-starter/web/static/media/loader.8abb432223019c4f617e.gif",
+    "static/media/dinnextltpro-regular.otf": "/__xpr__/pub_engine/my-business-starter/web/static/media/dinnextltpro-regular.070e0f7a20094b0b20f5.otf",
+    "static/media/dinnextltpro-light.otf": "/__xpr__/pub_engine/my-business-starter/web/static/media/dinnextltpro-light.82d154d8c0238eac4d08.otf",
+    "static/media/dinnextltpro-medium.otf": "/__xpr__/pub_engine/my-business-starter/web/static/media/dinnextltpro-medium.6f2285a4549990a87432.otf",
+    "static/media/dinnextltpro-bold.otf": "/__xpr__/pub_engine/my-business-starter/web/static/media/dinnextltpro-bold.005cbaa254ca9ca02199.otf",
+    "static/media/XPRIcons.ttf": "/__xpr__/pub_engine/my-business-starter/web/static/media/XPRIcons.0e5c4b672ebf0a2624d4.ttf",
+    "index.html": "/__xpr__/pub_engine/my-business-starter/web/index.html",
+    "static/media/switch-handle.svg": "/__xpr__/pub_engine/my-business-starter/web/static/media/switch-handle.b2a3820267082e7edc3e.svg",
+    "main.13baea2d.css.map": "/__xpr__/pub_engine/my-business-starter/web/static/css/main.13baea2d.css.map",
+    "main.5a77b239.js.map": "/__xpr__/pub_engine/my-business-starter/web/static/js/main.5a77b239.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13baea2d.css",
+    "static/js/main.5a77b239.js"
+  ]
+}
