@@ -1,0 +1,106 @@
+
+/*
+ * CKEditor 5 (v31.1.0) content styles.
+ * Generated on Wed, 22 Dec 2021 12:18:23 GMT.
+ * For more information, check out https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/content-styles.html
+ */
+// ...
+
+//
+// CK Editor UI overrides
+//
+
+.ck.ck-editor__editable_inline,
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+    padding: 0 0 0.875rem !important;
+    border: 0 !important;
+    border-bottom: 1px solid $gray-600 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.ck.ck-editor__editable_inline>:first-child {
+    margin-top: 0 !important;
+}
+.ck.ck-editor__editable_inline>:last-child {
+    margin-bottom: 0 !important;
+}
+
+.ck-body-wrapper {
+    
+    .ck.ck-balloon-panel { 
+        background: $primary;
+        border: 0;
+        box-shadow: 0 0.125rem 0.625rem rgb(0 0 0 / 14%);
+        margin-top: -5px;
+    }
+
+    .ck.ck-toolbar,
+    .ck-toolbar-container .ck.ck-toolbar,
+    .ck-rounded-corners .ck.ck-toolbar, .ck.ck-toolbar.ck-rounded-corners {
+        background: $primary;
+        border: 0;
+        border-radius: 3px;
+        box-shadow: none;
+    }
+
+    .ck.ck-toolbar.ck-toolbar_vertical,
+    .ck.ck-list {
+        background: $primary;
+    }
+
+    .ck.ck-button,a.ck.ck-button {
+        color: $white;
+        margin: 0;
+    }
+
+    .ck.ck-button:not(.ck-disabled):hover, 
+    a.ck.ck-button:not(.ck-disabled):hover,
+    .ck.ck-button.ck-on:not(.ck-disabled):hover, 
+    a.ck.ck-button.ck-on:not(.ck-disabled):hover,
+    .ck.ck-list__item .ck-button:hover:not(.ck-disabled),
+    .ck.ck-list__item .ck-button.ck-on,
+    .ck.ck-list__item .ck-button.ck-on:hover:not(.ck-disabled) {
+        background: $blue-900;
+        color: $white;
+    }
+
+    .ck.ck-button.ck-on, 
+    a.ck.ck-button.ck-on,
+    .ck.ck-button.ck-on:not(.ck-disabled):active, 
+    a.ck.ck-button.ck-on:not(.ck-disabled):active {
+        background: transparent;
+        color: $white;
+    }
+
+    .ck.ck-toolbar .ck.ck-toolbar__separator {
+        background-color: $blue-alt;
+    }
+
+    .ck.ck-dropdown__panel,.ck-rounded-corners .ck.ck-editor__editable:not(.ck-editor__nested-editable), 
+    .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-rounded-corners {
+        border: 0;
+    }
+
+}
+
+.ck-heading .ck {
+    p {
+        font-size: 1.375rem;
+        font-weight: 600;
+        color: $grape;
+    }
+    b,strong {
+        font-weight: 900;
+    }
+}
+
+.ck.ck-link-form {
+    background: $white !important;
+}
+
+.ck.ck-balloon-panel[class*=arrow_n]:before {
+    display: none;
+}

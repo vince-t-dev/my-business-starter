@@ -1,0 +1,12 @@
+{
+    "datasources": [
+        {
+            "name" : "Users",
+            "scripts" : [
+                {
+                    "path" : "/users_list_ssjs"
+                }
+            ]
+        }
+    ]
+}

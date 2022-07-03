@@ -1,0 +1,83 @@
+// 
+// React datetime picker
+//
+
+.rdt {
+	.rdtPicker {
+		box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.126011);
+		border-radius: $border-radius-md;
+		padding: 0.625rem 0.938rem;
+		margin-top: 0;
+		right: 0;
+		.dow {
+			height: 1.5rem;
+			line-height: 1.5rem;
+			font-size: $font-size-sm;
+			font-weight: $font-weight-bolder;
+		}
+		td {
+			width: 1.875rem !important; //30px
+			height: 1.875rem !important; // 30px
+			border-radius: 0.938rem; // 15px
+			&.rdtActive,
+			&[data-range="false"] + [data-range="true"] {
+				background-color: $primary !important;
+				color: $white !important;
+				text-shadow: none !important;
+				border-radius: 0.938rem;
+			}
+			&.rdtToday {
+				background-color: $light;
+				&::before {
+					display: none;
+				}
+			}
+			&[data-range="true"] {
+				background-color: $blue-alt;
+				border-radius: 0;
+			}
+		}
+		th {
+			height: 1.875rem !important; // 30px
+			border-bottom:0 !important;
+		}
+	}
+	&.days-picker {
+		width: 100%;
+		&.date-range {
+			min-width: 12.813rem;
+		}
+	}
+	&.time-picker { 
+		.rdtPicker {
+			min-width: 0; 
+		}
+	}
+	.rdtCounters {
+		display: flex;
+		flex-wrap: no-wrap;
+		.rdtCounterSeparator {
+			line-height: 7rem;
+		}
+		.rdtCounter {
+			.rdtBtn {
+				font-size: 0.563rem;
+				&:hover {
+					background: rgba(0, 0, 0, 0.085);
+				}
+			}
+			.rdtCount { 
+				border-top: 2px solid $primary;
+				border-bottom: 2px solid $primary;
+				font-size: 0.75rem;
+				height: 35%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			& + .rdtCounter {
+				margin-left: 0.3rem;
+			}
+		}
+	}
+}

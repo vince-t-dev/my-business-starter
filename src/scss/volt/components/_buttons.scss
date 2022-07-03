@@ -1,0 +1,469 @@
+//
+// Base styles
+//
+
+.btn {
+    display: inline-block;
+    font-family: $btn-font-family;
+    font-weight: $btn-font-weight;
+    line-height: $btn-line-height;
+    color: $body-color;
+    text-align: center;
+    text-decoration: if($link-decoration == none, null, none);
+    white-space: $btn-white-space;
+    vertical-align: middle;
+    cursor: if($enable-button-pointers, pointer, null);
+    user-select: none;
+    background-color: transparent;
+    border: $btn-border-width solid transparent;
+    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+    @include transition($btn-transition);
+
+    &:hover {
+        color: $body-color;
+        text-decoration: if($link-hover-decoration == underline, none, null);
+    }
+    .btn-check:focus + &,
+    &:focus {
+        outline: 0;
+        //box-shadow: $btn-focus-box-shadow;
+    }
+
+    .btn-check:checked + &,
+    .btn-check:active + &,
+    &:active,
+    &.active {
+        //@include box-shadow($btn-active-box-shadow);
+
+        &:focus {
+            //@include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+        }
+    }
+
+    &:disabled,
+    &.disabled,
+    fieldset:disabled & {
+        pointer-events: none;
+        opacity: $btn-disabled-opacity;
+        box-shadow: none;
+    }
+}
+
+
+//
+// Alternate buttons
+//
+
+// scss-docs-start btn-variant-loops
+@each $color, $value in $theme-colors {
+    .btn-#{$color} {
+        @include button-variant($value, $value);
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .btn-outline-#{$color} {
+        @include button-outline-variant($value);
+    }
+}
+// scss-docs-end btn-variant-loops
+
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.btn-link {
+    font-weight: $font-weight-normal;
+    color: $btn-link-color;
+    text-decoration: $link-decoration;
+
+    &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+    }
+
+    &:focus {
+    text-decoration: $link-hover-decoration;
+    }
+
+    &:disabled,
+    &.disabled {
+    color: $btn-link-disabled-color;
+    }
+
+    // No need for an active state here
+}
+
+
+//
+// Button Sizes
+//
+
+.btn-lg {
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+}
+
+.btn-sm {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+}
+
+// Make the div behave like a button
+.btn-group,
+.btn-group-vertical {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle; // match .btn alignment given font-size hack above
+
+    > .btn {
+        position: relative;
+        flex: 1 1 auto;
+    }
+
+    // Bring the hover, focused, and "active" buttons to the front to overlay
+    // the borders properly
+    > .btn-check:checked + .btn,
+    > .btn-check:focus + .btn,
+    > .btn:hover,
+    > .btn:focus,
+    > .btn:active,
+    > .btn.active {
+        z-index: 1;
+    }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.btn-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .input-group {
+        width: auto;
+    }
+}
+
+.btn-group {
+    // Prevent double borders when buttons are next to each other
+    > .btn:not(:first-child),
+    > .btn-group:not(:first-child) {
+        margin-left: -$btn-border-width;
+    }
+
+    // Reset rounded corners
+    > .btn:not(:last-child):not(.dropdown-toggle),
+    > .btn-group:not(:last-child) > .btn {
+        @include border-end-radius(0);
+    }
+
+    // The left radius should be 0 if the button is:
+    // - the "third or more" child
+    // - the second child and the previous element isn't `.btn-check` (making it the first child visually)
+    // - part of a btn-group which isn't the first child
+    > .btn:nth-child(n + 3),
+    > :not(.btn-check) + .btn,
+    > .btn-group:not(:first-child) > .btn {
+        @include border-start-radius(0);
+    }
+}
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.btn-group-sm > .btn { @extend .btn-sm; }
+.btn-group-lg > .btn { @extend .btn-lg; }
+
+
+//
+// Split button dropdowns
+//
+
+.dropdown-toggle-split {
+    padding-right: $btn-padding-x * .75;
+    padding-left: $btn-padding-x * .75;
+
+    &::after,
+    .dropup &::after,
+    .dropend &::after {
+        margin-left: 0;
+    }
+
+    .dropstart &::before {
+        margin-right: 0;
+    }
+    }
+
+    .btn-sm + .dropdown-toggle-split {
+        padding-right: $btn-padding-x-sm * .75;
+        padding-left: $btn-padding-x-sm * .75;
+    }
+
+    .btn-lg + .dropdown-toggle-split {
+        padding-right: $btn-padding-x-lg * .75;
+        padding-left: $btn-padding-x-lg * .75;
+    }
+
+
+    // The clickable button for toggling the menu
+    // Set the same inset shadow as the :active state
+    .btn-group.show .dropdown-toggle {
+    @include box-shadow($btn-active-box-shadow);
+
+    // Show no shadow for `.btn-link` since it has no other button styles.
+    &.btn-link {
+        @include box-shadow(none);
+    }
+}
+
+
+//
+// Vertical button groups
+//
+
+.btn-group-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    > .btn,
+    > .btn-group {
+        width: 100%;
+    }
+
+    > .btn:not(:first-child),
+    > .btn-group:not(:first-child) {
+        margin-top: -$btn-border-width;
+    }
+
+    // Reset rounded corners
+    > .btn:not(:last-child):not(.dropdown-toggle),
+    > .btn-group:not(:last-child) > .btn {
+        @include border-bottom-radius(0);
+    }
+
+    > .btn ~ .btn,
+    > .btn-group:not(:first-child) > .btn {
+        @include border-top-radius(0);
+    }
+}
+
+  
+/* override starts */
+
+/*
+* = Buttons
+*/
+
+.btn {
+    line-height: 1;
+    &:focus:active,&:focus,&:active {
+        box-shadow: none !important;
+    }
+    &.btn-circle {
+        border-radius: $circle-radius;
+    }
+    &.btn-md {
+        padding: 0.65rem 1.25rem;
+    }
+    &.btn-xs {
+        padding  : 0.175rem 0.45rem;
+        font-size: 0.7rem;
+    }
+    &.rounded-circle {
+        padding: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+.btn-icon { 
+    padding: 0; 
+}
+
+.btn-icon-only {
+    width  : 2.575rem;
+    height : 2.575rem;
+    padding: 0;
+    //@include display-flex();
+    //@include justify-content(center);
+    //@include align-items(center);
+
+    &.btn-xs {
+        width : 1.7rem;
+        height: 1.7rem;
+    }
+
+    &.btn-sm {
+        width : 2rem;
+        height: 2rem;
+    }
+}
+
+
+//
+// Basic / Primary / Secondary buttons
+//
+
+.btn-primary { 
+    border: 0; 
+    background: $primary;
+    &:not(.btn-sm):not(.icon) {
+        min-width: 8.75rem;
+    }
+    i { 
+        font-size: 0.6rem;
+    }
+}
+
+.btn-secondary:focus { 
+    background-color: inherit;    
+    color: inherit;
+}
+
+// default normal button
+
+.btn-primary,
+.btn-secondary,
+.btn-gray-700,
+.btn-warning,
+.btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.719rem;
+    width: 8.75rem;
+    height: 2.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: $white;
+    text-align: center;
+    letter-spacing: 0.031rem;
+    transition: background-color .5s ease, opacity .5s ease;
+    -webkit-transition: background-color .5s ease, opacity .5s ease;
+
+    &:active:focus {
+        box-shadow: none;
+    }
+    &.icon {
+        width: 2rem;
+        height: 2rem;
+        i:not([class*="font-"]) {
+            font-size: 1rem;
+        }
+        svg {
+            width: 1rem;
+        }
+    }
+
+    // small variant
+    &.btn-sm {
+        width: 5.313rem;
+    }
+}
+
+
+//
+// Secondary button
+//
+
+.btn-secondary { 
+    background: transparent;
+    border: 0.063rem solid $primary;
+    color: $primary;
+    
+    &:hover,
+    &:active, 
+    &:active:focus {
+        background: transparent;
+        border-color: $primary;
+        box-shadow: none;
+        color: $primary;
+    }
+ }
+
+//
+// Tertiary button
+//
+
+.btn-tertiary { color: $dark; }
+
+//
+// Block button
+//
+
+.btn-block {
+    display: block;
+    width  : 100%;
+
+    // Vertically space out multiple block buttons
+    +.btn-block {
+        margin-top: $btn-block-spacing-y;
+    }
+}
+
+.copy-code-button {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    background-color: transparent;
+    color: $gray-600;
+    border: 0;
+    box-shadow: none;
+
+    &:hover {
+        background-color: $primary;
+        color: $white;
+        border: 0;
+        box-shadow: none;
+    }
+}
+
+.copy-code-text {
+    position: absolute;
+    top: 24px;
+    right: 90px;
+}
+
+
+//
+// Outline button
+//
+
+// outline dark
+[class^="btn btn-outline-"] {
+    font-weight: $font-weight-normal;
+    font-size: $h5-font-size;
+    display: inline-flex;
+    align-items: center;
+    i { 
+        font-size: $h3-font-size;
+        margin-left: .5rem;
+    }
+}
+
+
+//
+// Other Buttons
+//
+
+
+
+//
+// Button group
+//
+
+.btn-group {
+    .btn {
+        &:focus,&:active {
+            box-shadow: none;
+        }
+    }
+    .btn-link {
+        padding: 0;
+        & +.btn-link { 
+            margin-left: 1rem;
+        }
+    }
+}

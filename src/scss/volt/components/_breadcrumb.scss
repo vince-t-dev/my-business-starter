@@ -1,0 +1,114 @@
+.breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+	margin-bottom: $breadcrumb-margin-bottom;
+	@include font-size($breadcrumb-font-size);
+	list-style: none;
+}
+
+.breadcrumb-item {
+	// The separator between breadcrumbs (by default, a forward-slash: "/")
+	+ .breadcrumb-item {
+		padding-left: $breadcrumb-item-padding-x;
+
+		&::before {
+			float: left; // Suppress inline spacings and underlining of the separator
+			padding-right: $breadcrumb-item-padding-x;
+			color: $breadcrumb-divider-color;
+			content: var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"};
+		}
+	}
+
+	&.active {
+		color: $breadcrumb-active-color;
+	}
+}
+
+
+/* override starts */
+
+/**
+* = Breadcrumbs
+*/
+
+.breadcrumb-item {
+	font-size: $font-size-xs;
+	color: $breadcrumb-item-color;
+	&, a {
+		color: $breadcrumb-item-color;
+		font-weight: $breadcrumb-font-weight;
+		font-size: $font-size-xs;
+	}
+
+	&.active {
+		font-weight: $breadcrumb-active-font-weight;
+	}
+
+	+ .breadcrumb-item {
+		&:before {
+			/* xpri-arrow-right */
+			content: "\e93d";
+			font-family: "XPRIcons";
+			font-size: 0.5rem;
+			font-weight: 400;
+			color: $breadcrumb-divider-color;
+			line-height: 2.5;
+		}
+	}
+}
+
+
+// Progress
+
+.progress {
+	.breadcrumb-item {
+		&, a {
+			text-transform: uppercase;
+			color: $gray-500;
+		}
+		+ .breadcrumb-item {
+			margin-left: 1.25rem;
+			&:before {
+				display: none;
+			}
+		}
+		span {
+			position: relative;
+			display: inline-flex;
+			justify-content: center;
+			width: 1.25rem;
+			height: 1.25rem;
+			border: 0.125rem solid $gray-500;
+			border-radius: 50%;
+			font-size: 0.75rem;
+			font-weight: $font-weight-bold;
+			text-align: center;
+			line-height: 1.5;
+			color: $gray-500;
+			margin-right: 0.625rem;
+			background-color: $blue-alt-2;
+			&:before {
+				position:absolute;
+				left: -0.938rem;
+				top: 50%;
+				transform: translateY(-50%);
+				content: "";
+				width: 0.938rem;
+				height: 0.125rem;
+				background-color: $gray-500;
+			}
+		}
+		&.active, &.active a {
+			color: $primary;
+			span { 
+				background: $primary;
+				border-color: $primary;
+				color: $white;
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,117 @@
+/**
+ * = Input groups
+ */
+
+.input-group {
+	border-radius: $input-border-radius-md;
+	transition: $transition-base;
+
+	.form-control {
+		box-shadow: none;
+
+		&:not(:first-child) {
+		    	border-left: 0;
+		    	/* padding-left: 0;*/
+		}
+		&:not(:last-child) {
+			border-right: 0;
+			padding-right: 0;
+		}
+		&:focus {
+			box-shadow: none;
+		}
+	}
+
+	// collapsible search box
+	&.search-box {
+		width: auto;
+		height: 2.625rem; 
+    	flex-wrap: nowrap;
+    	padding: 0;
+    	margin: 0;
+    	justify-content: end;
+		transition: all .5s ease;
+		&:not(:hover) {
+			.input-group-text {
+				border-radius: 50% !important;
+				padding: 0.55rem;
+			}
+		}
+		&:hover,&:focus-within {
+			border-left: 0;
+			.form-control {
+				width: 9.375rem;
+				padding: 0.55rem 0.75rem !important;
+				flex: 1 1 auto;
+				opacity: 1;
+				border: $input-border-width solid $input-border-color;
+				border-right: 0;
+			}
+			.input-group-text {
+				border-top-right-radius: 50% !important;
+				padding: 0.55rem;
+				border-bottom-right-radius: 50% !important;
+				border-left: 0;
+				border-top-left-radius: 0 !important;
+				border-bottom-left-radius: 0 !important;
+			}
+		}
+		.form-control {
+			width: 0;
+			overflow: hidden;
+			padding: 0 !important;
+			border: 0;
+			margin: 0;
+			flex: 0;
+			opacity: 0;
+			transition: all .4s ease,border 0s ease,opacity .3s ease;
+		}
+		.form-control:focus,
+		.form-control:not(:placeholder-shown) {
+			width: 9.375rem;
+			padding: 0.55rem 0.75rem !important;
+			flex: 1 1 auto;
+			opacity: 1;
+			border: $input-border-width solid $input-border-color;
+			border-right: 0;
+			& + .input-group-text {
+				border-top-right-radius: 50% !important;
+				padding: 0.55rem;
+				border-bottom-right-radius: 50% !important;
+				border-left: 0;
+				border-top-left-radius: 0 !important;
+				border-bottom-left-radius: 0 !important;
+			}
+		}
+	}
+}
+
+.input-group-text {
+	font-size: $font-size-sm;
+	transition: $input-transition;
+
+	.xpri-search,.xpri-calendar,.xpri-clock {
+		font-size: 1.125rem;
+	}
+}
+
+
+
+.input-group-prepend {
+	margin-right: -2px;
+}
+
+// .focus class is applied dinamycally from theme.js
+
+.focused {
+
+	.input-group-text {
+	    	color: $input-group-addon-focus-color;
+	    	background-color: $input-group-addon-focus-bg;
+	}
+
+	.input-group-shadow{
+		box-shadow:$shadow-input-focus;
+	}
+}
+

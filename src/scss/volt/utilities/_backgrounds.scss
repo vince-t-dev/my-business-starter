@@ -1,0 +1,36 @@
+/**
+ * = Backgrounds
+*/
+
+.form-bg-image {
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+}
+
+.bg-cover {
+    background: cover;
+}
+
+.bg-contain {
+    background: contain;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.object-fit-contain {
+    object-fit: contain;
+}
+
+// Aspect ratio overrides
+
+.ratio-1x1 { 
+    aspect-ratio: 1/1;
+}
+.ratio-4x3 { 
+    aspect-ratio: 1/1;
+}
+.ratio-16x9 { 
+    aspect-ratio: 1/1;
+}

@@ -1,0 +1,9 @@
+{
+    "templates" : [
+        { 
+            "name" : "My Business Starter",
+            "element" : "index",
+            "options" : {}
+        }
+    ]
+}

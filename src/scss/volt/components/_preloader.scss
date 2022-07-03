@@ -1,0 +1,85 @@
+.preloader {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    @include transition(height .3s);
+
+    .loader-element {
+        /*@include transition(spin .3s linear infinite);
+        -webkit-animation:spin 3s linear infinite;
+        -moz-animation:spin 3s linear infinite;
+        animation:spin 3s linear infinite;*/
+    }
+
+    &.show {
+        height: 0;
+
+        .loader-element {
+            display: none !important;
+        }
+    }
+}
+
+@-moz-keyframes spin { 
+    100% { 
+        -moz-transform: rotate(360deg); 
+    } 
+}
+
+@-webkit-keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+    } 
+}
+
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); transform:rotate(360deg); 
+    } 
+}
+
+
+//
+// Skeleton Loader
+//
+
+.empty {
+    display: inline-block;
+    width: 95%;
+    height: 0.75rem;
+    position: relative;
+    overflow: hidden;
+    background-color: $gray-400;
+    border-radius: 0.188rem;
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(
+        90deg,
+        rgba($white, 0) 0,
+        rgba($white, 0.2) 20%,
+        rgba($white, 0.5) 60%,
+        rgba($white, 0)
+        );
+        animation: shimmer 1s infinite;
+        content: '';
+    }
+    & + .empty {
+        margin-top: 0.438rem;
+    }
+
+    @keyframes shimmer {
+        100% {
+        transform: translateX(100%);
+        }
+    }
+}

@@ -1,0 +1,246 @@
+/* override starts */
+
+/**
+ * = Navs
+ */
+
+.nav-link {
+    color: $nav-link-color;
+
+    &:hover,
+    &.active {
+        color: $nav-link-hover-color;
+        img{
+            opacity: inherit;
+            transition: $transition-base;
+        }
+    }
+
+    span{
+        position: relative;
+        font-size: 0.87rem;
+    }
+}
+
+// Tabs 
+
+.nav-tabs {
+    .nav-item {
+        margin-bottom:0;
+    }
+  
+    .nav-link {
+        background: transparent;
+        width: 100%;
+        font-weight: $font-weight-bold;
+        font-size: $h6-font-size;
+        line-height: 1.2;
+        color: $dark;
+        border-radius: 0;
+        border: 0;
+        padding: 0.375rem 0.938rem;
+        border-bottom: 2px solid rgba(172, 172, 172, 0.4);
+        transition: all .5s ease;
+        -webkit-transition: all .5s ease;
+
+        &.active {
+            border-color: $dark;
+            color: $primary; 
+            background-color: transparent;
+        }
+    }
+
+    &.nav-dark{
+        .nav-link{
+            &.active{
+                color: $white;
+                background-color: #12358a;
+            }
+        }
+    }
+
+    &.nav-light{
+        .nav-link{
+            &.active{
+                color: $black;
+                background-color: $light;
+            }
+            &:hover{
+                color:$black;
+            }
+        }
+    }
+}
+
+// Pills 
+
+.nav-pills {
+    .nav-item:not(:last-child) {
+        padding-right: $nav-pills-space-x;
+    }
+
+    .nav-link { 
+        font-size: $h1-font-size; 
+	    font-weight: 600;
+        color: $gray-700;
+        letter-spacing: 0.031rem;
+        line-height: 1.25;
+    	padding: $nav-pills-padding-y $nav-pills-padding-x;
+        transition: $transition-base;
+        box-shadow: $nav-link-shadow;
+        border-bottom: $nav-pills-border-width solid $nav-pills-border-color;
+
+        &.avatar-link {
+            border:0;
+        }
+
+        &:hover {
+            color: $nav-pills-link-hover-color;
+        }
+    }
+ 
+    .nav-link.active,
+    .show > .nav-link {
+        color: $nav-pills-link-active-color;
+        background-color: $nav-pills-link-active-bg;
+        border-color: $nav-pills-border-active-color;
+    }
+
+    &.rounded{
+        .nav-link{
+            border-radius:30px;
+        }
+    }
+
+    &.bordered-pill-md{
+        .nav-link{
+            border: $border-width-md solid $gray-200;
+            font-weight:$font-weight-bold;
+        }
+    }
+
+    &.vertical-tab { 
+        .nav-link{
+            margin-bottom: .625rem;
+        }
+        .nav-item:not(:last-child) {
+            padding-right:0;
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        .nav-item {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .nav-pills:not(.nav-pills-circle) {
+        .nav-item {
+            padding-right: 0;
+        }
+    }
+} 
+
+
+// Navs circle
+
+.nav-pill-circle {
+    .nav-link {
+        @include display-flex();
+        text-align: center;
+        height: 80px;
+        width: 80px;
+        padding: 0;
+        box-shadow: $nav-link-shadow; 
+        border-radius: $nav-pills-border-circle;
+        align-items: center;
+        justify-content: center;
+
+        &.avatar-link{
+            box-shadow: none;
+        }
+    }
+
+    &.vertical-tab { 
+        .nav-link-icon {
+            i, svg {
+                font-size: 1.5rem;
+            }
+        }
+        .nav-item:not(:last-child) {
+            padding-right:0;
+        }
+    }
+
+    .nav-link-icon {
+        i, svg {
+            font-size: 1.25rem;
+            margin:0;
+            display: block;
+        }
+    }
+}
+
+// Navs square
+
+.nav-pill-square {
+    .nav-link {
+        text-align: center;
+        min-width: 80px;
+        box-shadow: $nav-link-shadow;
+        @include display-flex();
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.vertical-tab{
+        .nav-link{
+            margin-bottom: .625rem;
+            min-width: 100px;
+        }
+        .nav-item:not(:last-child) {
+            padding-right:0;
+        }
+    }
+
+    .nav-link-icon {
+        i, svg {
+            font-size: 1.25rem;
+            margin:0;
+            display: block;
+            line-height: 50px;
+        }
+    }
+}
+
+// Nav wrapper 
+.nav-wrapper {
+    padding: 1rem 0;
+    @include border-top-radius($card-border-radius);
+
+    + .card {
+        @include border-top-radius(0);
+        @include border-bottom-radius($card-border-radius);
+    }
+}
+
+// Tabbable tabs
+//
+// Hide tabbable panes to start, show them when `.active`
+
+.tab-content {
+    > .tab-pane {
+        padding: 1.5rem 0.2rem;
+        display: none;
+        pre{
+            padding:0;
+            margin:0;
+        }
+    }
+    
+    > .active {
+        display: block;
+    }
+}

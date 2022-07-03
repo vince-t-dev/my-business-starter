@@ -1,0 +1,243 @@
+// Responsive tables
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @include media-breakpoint-down($breakpoint) {
+        .table-responsive#{$infix} {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        }
+    }
+}
+  
+
+/* override starts */
+
+// General styles
+
+.table {
+    position: relative;
+    width: 100%;
+    > :not(:first-child) {
+        border-top: 0;
+    }
+    > :not(caption) > * > * {
+        border-bottom: 0;
+    }
+    thead th {
+        padding-top   : $table-head-spacer-y;
+        padding-bottom: $table-head-spacer-y;
+        font-size     : $table-head-font-size;
+        text-transform: $table-head-text-transform;
+        font-weight   : $font-weight-bold;
+        border-top    : 0;
+        color         : $gray-800;
+    }
+
+    &.comparison-table {
+
+        thead th {
+            font-size: 1.25rem;
+            color    : $dark;
+        }
+
+        td {
+            font-size: $font-size-base;
+        }
+
+    }
+
+    th {
+        font-weight: $font-weight-bold;
+        padding    : 1rem;
+    }
+
+    td,
+    th {
+        font-size  : $table-body-font-size;
+    }
+
+    // User Table
+
+    &.user-table {
+        thead th {
+            border-top: 0;
+        }
+    }
+
+    // Vetical align table content
+
+    &.align-items-center {
+
+        td,
+        th {
+            vertical-align: middle;
+        }
+    }
+
+
+    // Styles for dark table
+
+    .thead-dark {
+        th {
+            background-color: $dark;
+            color           : $white;
+
+            a {
+                color: $dark;
+            }
+        }
+    }
+
+
+    // Styles for light table
+
+    .thead-light {
+        th {
+            background-color: $soft;
+            color           : $dark;
+
+            a {
+                color: $dark;
+            }
+        }
+    }
+
+    .btn-group { 
+        .btn-link {
+            i { font-size: 1rem; }
+        }
+    }
+}
+
+
+// Add transition for hover state
+
+.table-hover {
+    tr {
+        @include transition($transition-base);
+    }
+}
+
+
+// Flush tables
+
+.table-flush {
+
+    td,
+    th {
+        border-left : 0;
+        border-right: 0;
+    }
+
+    tbody {
+        tr {
+            &:first-child {
+
+                td,
+                th {
+                    border-top: 0;
+                }
+            }
+
+            &:last-child {
+
+                td,
+                th {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+
+// Tables inside cards
+
+.card {
+    .table {
+        margin-bottom: 0;
+        td,th {
+            padding-left : 1rem;
+            padding-right: 1rem;
+            > span { 
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                padding: 0 1rem;
+                height: 3.438rem;
+                line-height: 1;
+                position: relative;
+                .text-truncate {
+                    display: block;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    white-space: normal;
+                }
+            }
+        }
+        td { padding: 0 0 0.625rem; }
+        td:first-child:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            right: 0.125rem;
+            display: block;
+            height: 3.438rem;
+            box-shadow: 0.063rem 0.063rem 0.25rem rgb(0 0 0 / 25%);
+        }
+        .selected td:first-child:before {
+            background-color: $tertiary;
+        }
+    }
+}
+
+.table {
+    [data-sort] {
+        cursor: pointer;
+    }
+
+    .custom-toggle {
+        display: block;
+    }
+
+    .thead-dark {
+        [data-sort] {
+            &::after {
+                content    : str-replace(url("data:image/svg+xml;utf8,<svg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M3 0L6 4H0L3 0ZM3 10L0 6H6L3 10Z' fill='#{$dark}'/></svg>"), "#", "%23");
+                margin-left: .25rem;
+            }
+        }
+    }
+
+    .thead-light {
+        [data-sort] {
+            &::after {
+                content    : str-replace(url("data:image/svg+xml;utf8,<svg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M3 0L6 4H0L3 0ZM3 10L0 6H6L3 10Z' fill='#{$dark}'/></svg>"), "#", "%23");
+                margin-left: .25rem;
+            }
+        }
+    }
+}
+
+.react-bootstrap-table {
+    table {
+        table-layout: auto !important;
+    }
+}
+
+.react-bootstrap-table-page-btns-ul {
+    margin-bottom: 0;
+}
+
+.search-label {
+    width: 100%;
+}

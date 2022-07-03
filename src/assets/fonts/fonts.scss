@@ -1,0 +1,348 @@
+/* 
+	font - "DIN Next LT Pro" 
+	font-weight - 300: light, 400: regular, 600: medium, 700: bold
+*/
+
+@font-face {
+	font-family: 'DIN';
+	font-weight: 300;
+	src: url('./dinnextltpro-light.otf');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'DIN';
+	font-weight: 400;
+	src: url('./dinnextltpro-regular.otf');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'DIN';
+	font-weight: 600;
+	src: url('./dinnextltpro-medium.otf');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'DIN';
+	font-weight: 700;
+	src: url('./dinnextltpro-bold.otf');
+	font-display: swap;
+}
+
+
+/* 
+	XPR21 Icons
+*/
+
+@font-face {
+	font-family: 'XPRIcons';
+	font-weight: normal;
+	src: url('./XPRIcons.ttf');
+	font-display: swap;
+}
+
+[class^="xpri-"], [class*=" xpri-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'XPRIcons' !important;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none; 
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.xpri-unlock:before {
+  content: "\e900";
+}
+.xpri-lock:before {
+  content: "\e901";
+}
+.xpri-cart:before {
+  content: "\e902";
+}
+.xpri-sort-down:before {
+  content: "\e903";
+}
+.xpri-sort-up:before {
+  content: "\e904";
+}
+.xpri-eye-slash:before {
+  content: "\e905";
+}
+.xpri-eye-alt:before {
+  content: "\e906";
+}
+.xpri-keyboard-arrow-right:before {
+  content: "\e907";
+}
+.xpri-warning-triangle:before {
+  content: "\e908";
+}
+.xpri-sort:before {
+  content: "\e909";
+}
+.xpri-eye:before {
+  content: "\e90a";
+}
+.xpri-search-alt:before {
+  content: "\e90b";
+}
+.xpri-move-up:before {
+  content: "\e90c";
+}
+.xpri-check-circle:before {
+  content: "\e90d";
+}
+.xpri-move-down:before {
+  content: "\e90e";
+}
+.xpri-transfer:before {
+  content: "\e90f";
+}
+.xpri-save-alt:before {
+  content: "\e910";
+}
+.xpri-add-new:before {
+  content: "\e911";
+}
+.xpri-dashboard-alt-2:before {
+  content: "\e912";
+}
+.xpri-superuser:before {
+  content: "\e913";
+}
+.xpri-customer:before {
+  content: "\e914";
+}
+.xpri-usergroup:before {
+  content: "\e915";
+}
+.xpri-cog:before {
+  content: "\e916";
+}
+.xpri-info:before {
+  content: "\e917";
+}
+.xpri-user-alt:before {
+  content: "\e918";
+}
+.xpri-backend-alt:before {
+  content: "\e919";
+}
+.xpri-dashboard-alt:before {
+  content: "\e91a";
+}
+.xpri-edit-website:before {
+  content: "\e91b";
+}
+.xpri-stripe:before {
+  content: "\e91c";
+}
+.xpri-pause:before {
+  content: "\e91d";
+}
+.xpri-bill:before {
+  content: "\e91e";
+}
+.xpri-api:before {
+  content: "\e91f";
+}
+.xpri-connectivity:before {
+  content: "\e920";
+}
+.xpri-storage:before {
+  content: "\e921";
+}
+.xpri-transfer-alt:before {
+  content: "\e922";
+}
+.xpri-add-user:before {
+  content: "\e923";
+}
+.xpri-select-all:before {
+  content: "\e924";
+}
+.xpri-refresh:before {
+  content: "\e925";
+}
+.xpri-archive:before {
+  content: "\e926";
+}
+.xpri-drag:before {
+  content: "\e927";
+}
+.xpri-pencil:before {
+  content: "\e928";
+}
+.xpri-clock:before {
+  content: "\e929";
+}
+.xpri-arrow-down:before {
+  content: "\e92a";
+}
+.xpri-members:before {
+  content: "\e92b";
+}
+.xpri-filter:before {
+  content: "\e92c";
+}
+.xpri-list-square:before {
+  content: "\e92d";
+}
+.xpri-instance:before {
+  content: "\e92e";
+}
+.xpri-external-link:before {
+  content: "\e92f";
+}
+.xpri-save:before {
+  content: "\e930";
+}
+.xpri-instance-view:before {
+  content: "\e931";
+}
+.xpri-list:before {
+  content: "\e932";
+}
+.xpri-tile:before {
+  content: "\e933";
+}
+.xpri-instance-circle:before {
+  content: "\e934";
+}
+.xpri-xpr-circle:before {
+  content: "\e935";
+}
+.xpri-check-square:before {
+  content: "\e936";
+}
+.xpri-close:before {
+  content: "\e937";
+}
+.xpri-customize:before {
+  content: "\e938";
+}
+.xpri-image:before {
+  content: "\e939";
+}
+.xpri-alert:before {
+  content: "\e93a";
+}
+.xpri-check:before {
+  content: "\e93b";
+}
+.xpri-plus:before {
+  content: "\e93c";
+}
+.xpri-arrow-right:before {
+  content: "\e93d";
+}
+.xpri-download:before {
+  content: "\e93e";
+}
+.xpri-preview:before {
+  content: "\e93f";
+}
+.xpri-calendar-alt:before {
+  content: "\e940";
+}
+.xpri-trash:before {
+  content: "\e941";
+}
+.xpri-delete:before {
+  content: "\e942";
+}
+.xpri-edit:before {
+  content: "\e943";
+}
+.xpri-credit-card:before {
+  content: "\e944";
+}
+.xpri-badges:before {
+  content: "\e945";
+}
+.xpri-documentation:before {
+  content: "\e946";
+}
+.xpri-bell:before {
+  content: "\e947";
+}
+.xpri-business:before {
+  content: "\e948";
+}
+.xpri-marketplace:before {
+  content: "\e949";
+}
+.xpri-xpr-2:before {
+  content: "\e94a";
+}
+.xpri-caret:before {
+  content: "\e94b";
+}
+.xpri-search:before {
+  content: "\e94c";
+}
+.xpri-calendar:before {
+  content: "\e94d";
+}
+.xpri-control-panel:before {
+  content: "\e94e";
+}
+.xpri-backend:before {
+  content: "\e94f";
+}
+.xpri-logout:before {
+  content: "\e950";
+}
+.xpri-xpr:before {
+  content: "\e951";
+}
+.xpri-applications:before {
+  content: "\e952";
+}
+.xpri-dashboard:before {
+  content: "\e953";
+}
+.xpri-badge:before {
+  content: "\e954";
+}
+.xpri-details:before {
+  content: "\e955";
+}
+.xpri-user:before {
+  content: "\e956";
+}
+.xpri-instances:before {
+  content: "\e957";
+}
+
+  
+/* custom icon styles: update here after re-import */
+
+[class^="xpri-"].icon-xl {
+	font-size: 3.75rem;
+}
+.xpri-sort {
+	position: relative;
+}
+.descending .xpri-sort:after,
+.xpri-sort-up:after {
+  	content: "\e904";
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	z-index: 10;
+  	color: #7c7c7c;
+}
+.ascending .xpri-sort:after,
+.xpri-sort-down:after {
+	content: "\e903";
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	color: #7c7c7c;
+}
