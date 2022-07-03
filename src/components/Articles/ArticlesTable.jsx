@@ -50,12 +50,12 @@ function ArticlesTable(props) {
 
     // hooks: page load
     useEffect(() => {
-        if (props.loadData) fetchItems(keyword, page);
+        fetchItems(keyword, page);
     },[]);
 
     // hooks: fetch data when page changes
     site.useUpdateEffect(() => {
-        if (props.loadData) fetchItems(keyword, page);
+        fetchItems(keyword, page);
     },[page]);
     
     // hooks: fetch data when date filter changes
@@ -65,6 +65,7 @@ function ArticlesTable(props) {
 
     // fetch items
     const fetchItems = (query,goToPage) => {
+        console.log('fuck?');
         setIsLoaded(false);
         url.searchParams.append("page", goToPage ? goToPage : page);
         if (query) url.searchParams.append("q", query);
@@ -130,15 +131,11 @@ function ArticlesTable(props) {
         setOpenModal(false);
         setSelectedCheckboxes([]);
     }
-    // listen to load data prop to refresh table
-    site.useUpdateEffect(() => {
-        if (props.loadData) getSearch();
-    },[props.loadData]);
 
     // update status
     const handleStatusChange = e => {
         // normalize data: accepting both article and object from footer component
-        let name = e.target ? e.target.name : "Published";
+        let name = e.target ? e.target.name : "Active";
         let value = e.target ? e.target.checked : e.checked;
         let id = e.target ? e.target.value : e.Id;
         let formData = {};
@@ -197,7 +194,7 @@ function ArticlesTable(props) {
                     <tr>
                         <th><Form.Check inline onChange={e => {toggleAllCheckboxes(e,items)}}/></th>
                         <th className="w-25">Title <Button variant="icon" onClick={() => requestSort("Title")} className={getClassNamesFor("Title")}><i className="xpri-sort font-sm text-gray-700"></i></Button></th>
-                        <th>Date <Button variant="icon" onClick={() => requestSort("StartDate")} className={getClassNamesFor("StartDate")}><i className="xpri-sort font-sm text-gray-700"></i></Button></th>
+                        <th>Date <Button variant="icon" onClick={() => requestSort("DisplayDate")} className={getClassNamesFor("DisplayDate")}><i className="xpri-sort font-sm text-gray-700"></i></Button></th>
                         <th>Created On <Button variant="icon" onClick={() => requestSort("CreatedOn")} className={getClassNamesFor("CreatedOn")}><i className="xpri-sort font-sm text-gray-700"></i></Button></th>
                         <th>Published <Button variant="icon" onClick={() => requestSort("Active")} className={getClassNamesFor("Active")}><i className="xpri-sort font-sm text-gray-700"></i></Button></th>
                         <th></th>
@@ -214,18 +211,16 @@ function ArticlesTable(props) {
                         </td>
                         <td><span><div className="text-truncate" dangerouslySetInnerHTML={{__html: a.Title}}></div></span></td>
                         <td><span><div className="text-truncate text-nowrap">{
-                            a.StartDate 
-                            ? moment(a.StartDate).format("MM") == moment(a.EndDate).format("MM")
-                            ? moment(a.StartDate).format("MMM") + " " + moment(a.StartDate).format("DD") + `${ moment(a.StartDate).format("DD") != moment(a.EndDate).format("DD") ? " - " + moment(a.EndDate).format("DD") : "" }`+ " ," + moment(a.EndDate).format("YYYY")
-                            : moment(a.StartDate).format("MMM") + " " + moment(a.StartDate).format("DD") + " - " + moment(a.EndDate).format("MMM") + " " + moment(a.EndDate).format("DD") + " ," + moment(a.EndDate).format("YYYY")
+                            a.DisplayDate
+                            ? moment(a.DisplayDate).format("MMM") + " " + moment(a.DisplayDate).format("DD") + ", " + moment(a.DisplayDate).format("YYYY")
                             : "No date available"}
                         </div></span></td>
-                        <td><span className="justify-content-start">{a.TotalTicketsSold}</span></td>
-                        <td><span className="justify-content-start">{a.TotalSeatsRemaining}</span></td>
-                        <td><span className="justify-content-start">{a.TotalWaitlist}</span></td>
+                        <td>
+                            <span className="justify-content-start">{a.CreatedOn}</span>
+                        </td>
                         <td>
                             <span className="justify-content-start">
-                                <Form.Check type="switch" defaultChecked={a.Published} name="Published" value={a.Id} onChange={handleStatusChange} id={"switch-status-"+a.Id}/>
+                                <Form.Check type="switch" defaultChecked={a.Active} name="Active" value={a.Id} onChange={handleStatusChange} id={"switch-status-"+a.Id}/>
                             </span>
                         </td>
                         <td>
@@ -238,7 +233,7 @@ function ArticlesTable(props) {
                                         <Link to={"/my-business/articles/edit/"+a.Id} state={{item: a}} className="btn btn-link"><i data-toggle="tooltip" className="xpri-pencil"></i></Link>
                                     </OverlayTrigger>
                                     <OverlayTrigger overlay={<Tooltip>Trash</Tooltip>}>
-                                        <Button type="button" onClick={e => { setOpenModal({type:"archive-articles", data: [a]}); }} variant="link"><i data-toggle="tooltip" className="xpri-trash"></i></Button>
+                                        <Button type="button" onClick={e => { setOpenModal({type:"delete-articles", data: [a]}); }} variant="link"><i data-toggle="tooltip" className="xpri-trash"></i></Button>
                                     </OverlayTrigger>
                                 </div>
                             </span>

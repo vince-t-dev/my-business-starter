@@ -137,7 +137,7 @@ function ArticleDetails(props) {
                                         {/* image editor */}
                                         <Form.Group className="mb-4" controlId="Logo">
                                             <Form.Label className="text-grape">Picture</Form.Label>
-                                            <ImageEditor name="_embedded.Logo" value={item._embedded?.Logo || ""} onChange={updateData}/>
+                                            <ImageEditor name="_embedded.Picture" value={item._embedded?.Picture || ""} onChange={updateData}/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-4" controlId="Description">
