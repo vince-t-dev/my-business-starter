@@ -65,7 +65,6 @@ function ArticlesTable(props) {
 
     // fetch items
     const fetchItems = (query,goToPage) => {
-        console.log('fuck?');
         setIsLoaded(false);
         url.searchParams.append("page", goToPage ? goToPage : page);
         if (query) url.searchParams.append("q", query);

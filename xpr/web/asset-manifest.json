@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/__xpr__/pub_engine/my-business-starter/web/static/css/main.13baea2d.css",
-    "main.js": "/__xpr__/pub_engine/my-business-starter/web/static/js/main.97781ebe.js",
+    "main.js": "/__xpr__/pub_engine/my-business-starter/web/static/js/main.aa98aedc.js",
     "static/media/loader.gif": "/__xpr__/pub_engine/my-business-starter/web/static/media/loader.8abb432223019c4f617e.gif",
     "static/media/dinnextltpro-regular.otf": "/__xpr__/pub_engine/my-business-starter/web/static/media/dinnextltpro-regular.070e0f7a20094b0b20f5.otf",
     "static/media/dinnextltpro-light.otf": "/__xpr__/pub_engine/my-business-starter/web/static/media/dinnextltpro-light.82d154d8c0238eac4d08.otf",
@@ -11,10 +11,10 @@
     "index.html": "/__xpr__/pub_engine/my-business-starter/web/index.html",
     "static/media/switch-handle.svg": "/__xpr__/pub_engine/my-business-starter/web/static/media/switch-handle.b2a3820267082e7edc3e.svg",
     "main.13baea2d.css.map": "/__xpr__/pub_engine/my-business-starter/web/static/css/main.13baea2d.css.map",
-    "main.97781ebe.js.map": "/__xpr__/pub_engine/my-business-starter/web/static/js/main.97781ebe.js.map"
+    "main.aa98aedc.js.map": "/__xpr__/pub_engine/my-business-starter/web/static/js/main.aa98aedc.js.map"
   },
   "entrypoints": [
     "static/css/main.13baea2d.css",
-    "static/js/main.97781ebe.js"
+    "static/js/main.aa98aedc.js"
   ]
 }
