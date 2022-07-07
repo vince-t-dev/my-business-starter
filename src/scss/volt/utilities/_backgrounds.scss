@@ -34,3 +34,11 @@
 .ratio-16x9 { 
     aspect-ratio: 1/1;
 }
+
+// custom background
+
+.bg-gradient-blue-black-purple { 
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(112.88deg, #1E57B9 6.03%, #181819 45%,#5B2B87 80.91%);
+    background-size: 200% 200%;
+	animation: gradient 15s ease infinite;
+}

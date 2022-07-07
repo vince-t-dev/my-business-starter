@@ -38,12 +38,10 @@ export default (props) => {
                     <>
                     <div className="vr"/>
                     <Button type="button" variant="link" className="btn" onClick={e => toggleStatus("Publish")}>
-                        {/*<FontAwesomeIcon icon={faToggleOn} size="xl" className=" m-0 mx-5 mb-1 font-xl d-block"/>*/}
                         <small className="font-xs">Publish</small>
                     </Button>
                     <div className="vr"/>
-                    <Button type="button" variant="link" className="btn" onClick={e => toggleStatus("Unpublish")}>
-                        {/*<FontAwesomeIcon icon={faToggleOff} size="xl" className=" m-0 mx-5 mb-1 font-xl d-block"/>*/}
+                    <Button type="button" variant="link" className="btn" onClick={e => toggleStatus("Unpublish")}>\
                         <small className="font-xs">Unpublish</small>
                     </Button>
                     </>}

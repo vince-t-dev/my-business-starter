@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { Col, Row, Form, Image, Button, Container, InputGroup, Alert, Spinner, Card } from 'react-bootstrap';
+import { Col, Row, Form, Image, Button, Container, InputGroup, Alert, Spinner } from "react-bootstrap";
+import { useFormik } from "formik";
+import * as yup from "yup";
 import { useAuth } from "../context/auth";
 
 function Login(props) {
     const [showPassword, setShowPassword] = useState(false);
     const passwordInputType = showPassword ? "text" : "password";
-    const passwordIconColor = showPassword ? "#262B40" : "";
+    const passwordIcon = showPassword ? "xpri-eye-alt" : "xpri-eye-slash";
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -28,8 +30,23 @@ function Login(props) {
     }
 
     // submission
-    const handleLogin = (e) => {
-        e.preventDefault();
+    const form = useFormik({
+        // specify required fields here
+        initialValues: {
+            password: ""
+        },
+        enableReinitialize: true,
+        validateOnChange: false,
+        validateOnBlur: false,
+        validationSchema: yup.object({
+            password: yup.string().required("Password is requred")
+        }),
+        onSubmit: values => {
+            handleLogin();
+        }
+    });
+
+    const handleLogin = () => {
         setIsLoaded(false);
         auth.signin(credentials,(res) => {
             setIsLoaded(true);
@@ -53,51 +70,55 @@ function Login(props) {
 
     return (
         <main>
-            <section className="vh-100 bg-soft d-flex align-items-center my-0">
+            <section className="vh-100 bg-gradient-blue-black-purple d-flex align-items-center my-0">
                 <Container>
-                    {<p className="text-center">
-                        <Card.Link as={Link} to="/my-business/login" className="text-dark">
-                            Sign in with a different account
-                        </Card.Link>
-                    </p>}
-                    <Row className="justify-content-center form-bg-image">
+                    <Row className="justify-content-center">
                         <Col xs={12} className="d-flex align-items-center justify-content-center">
-                            <div className="bg-white shadow-sm rounded p-4 p-lg-5 w-100 fmxw-500">
+                            <div className="bg-white rounded-lg p-4 p-lg-5 w-100 fmxw-500">
                                 <div className="text-center text-md-center mb-4 mt-md-0">
-                                    {/*<div className="user-avatar large-avatar mx-auto mb-3 border-dark p-2">
-                                    <Image src={Profile3} className="rounded-circle" />
-                                    </div>*/}
-                                    <Image src="/__xpr__/pub_engine/my-business-starter/web/xprs-logo-dark.svg" className="navbar-brand-light mb-4" />
-                                    <div className="text-center text-md-center mb-4 mt-md-0">
-                                       
-                                            { userData?._embedded?.CustomFields?._embedded?.ProfileImage.SourcePath ?
-                                            <div className="user-avatar large-avatar mx-auto mb-3 border-dark p-2"><Image src={userData?._embedded?.CustomFields?._embedded?.ProfileImage?.SourcePath} className="rounded-circle" /></div>
-                                            :
-                                            <i className="xpri-user text-gray display-1 my-3"></i>
-                                            } 
-                                        
-                                        <h3 className="mb-2">{userData?.FirstName} {userData?.LastName}</h3>
-                                        <p className="text-gray">{userData?.Username}</p>
+                                    <div className="text-center text-md-center">
+                                        <h5 className="text-primary">DASHBOARD</h5>
+                                        <Image src="/__xpr__/pub_engine/my-business-starter/web/xprs-logo-dark.svg" className="navbar-brand-light mb-5" />
+                                        <div className="d-flex align-items-center justify-content-center">
+                                            { userData?._embedded?.CustomFields?._embedded?.ProfileImage.SourcePath &&
+                                            <div className="user-avatar me-3"><Image src={userData?._embedded?.CustomFields?._embedded?.ProfileImage?.SourcePath} className="rounded-circle" /></div>} 
+                                            <h3 className="mb-0">{userData?.FirstName} {userData?.LastName}</h3>
+                                        </div>
+                                        <p className="text-gray mt-2">{userData?.Username}</p>
                                     </div>
                                 </div>
-                                <Form onSubmit={e => handleLogin(e)} className="mt-2">
+                                <Form onSubmit={form.handleSubmit} className="mt-2" noValidate>
                                     <Form.Group id="password" className="mb-4">
-                                        <Form.Label>Your Password</Form.Label>
+                                        <Form.Label className="text-grape">Password*</Form.Label>
                                         <InputGroup>
-                                            <InputGroup.Text>
-                                            <i className="xpri-unlock"></i>
+                                            <InputGroup.Text className="border-grape border-xs">
+                                                <i className="xpri-unlock font-size-lg fw-bold"></i>
                                             </InputGroup.Text>
-                                            <Form.Control required type={passwordInputType} name="password" onChange={e => setPassword(e.target.value)} placeholder="Password" />
-                                            <InputGroup.Text onClick={togglePasswordVisibility}>
-                                            <i className="xpri-eye-alt"></i>
+                                            <Form.Control required type={passwordInputType} name="password" onChange={e => {setPassword(e.target.value);form.setFieldValue(`password`, e.target.value);}} placeholder="Enter your password"  className="border-grape border-xs"/>
+                                            <InputGroup.Text onClick={togglePasswordVisibility} className="border-grape border-xs">
+                                                <i className={`${passwordIcon} font-size-lg fw-bold`}></i>
                                             </InputGroup.Text>
                                         </InputGroup>
                                     </Form.Group>
-                                    <Button variant="primary" type="submit" className="w-100">
-                                        Login { !isLoaded && <Spinner animation="border" variant="white" size="sm" className="ms-2"/>}
-                                    </Button>
+                                    <nav className="text-center py-3">
+                                        <Button variant="primary" type="submit" className="w-auto px-4">
+                                            Login { !isLoaded && <Spinner animation="border" variant="white" size="sm" className="ms-2"/>}
+                                        </Button>
+                                    </nav>
                                     
-                                    {error && <Alert className="mt-3" variant="primary">{error}</Alert>}
+                                    {error && <Alert className="mb-3" variant="primary">{error}</Alert>}
+
+                                    {form.errors?.password && form.touched.password && (
+                                        <Alert className="mt-3" variant="primary">
+                                           {form.errors?.password}
+                                        </Alert>
+                                    )}
+
+                                    <p className="text-center mt-3">
+                                        <Link as={Link} to="/my-business/login" className="text-grape text-decoration-none">
+                                            Sign in with a different account
+                                        </Link>
+                                    </p>
                                 </Form>
                             </div>
                         </Col>

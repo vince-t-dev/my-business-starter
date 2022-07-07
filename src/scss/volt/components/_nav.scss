@@ -90,10 +90,6 @@
         box-shadow: $nav-link-shadow;
         border-bottom: $nav-pills-border-width solid $nav-pills-border-color;
 
-        &.avatar-link {
-            border:0;
-        }
-
         &:hover {
             color: $nav-pills-link-hover-color;
         }
@@ -107,7 +103,7 @@
     }
 
     &.rounded{
-        .nav-link{
+        .nav-link {
             border-radius:30px;
         }
     }
@@ -157,10 +153,6 @@
         border-radius: $nav-pills-border-circle;
         align-items: center;
         justify-content: center;
-
-        &.avatar-link{
-            box-shadow: none;
-        }
     }
 
     &.vertical-tab { 

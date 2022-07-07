@@ -531,10 +531,22 @@
     border-radius: $border-radius;
 }
 
+// notification
 .icon-notifications {
     .unread-notifications {
         position: absolute;
         right: -5px;
         top: -5px;
     }
+}
+
+// avatar
+.user-avatar { 
+    height: 2rem;
+    min-height: 2rem;
+    min-width: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

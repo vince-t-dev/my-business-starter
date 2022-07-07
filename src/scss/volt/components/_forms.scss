@@ -88,13 +88,6 @@
     border-radius: $border-radius-md;
 }
 
-.focused {
-    .form-control {
-        border-color: $input-focus-border-color;
-        background-color: $input-focus-bg;
-    }
-}
-
 .form-switch {
     padding-left: $form-switch-padding-start;
   
@@ -207,8 +200,7 @@ hr {
 
 .form-label {
     font-size: $h6-font-size;
-    font-weight: $font-weight-normal;
-    text-transform: uppercase;
+    font-weight: $font-weight-bold;
     letter-spacing: 0.01rem;
 }
 
@@ -381,7 +373,7 @@ input[type=range]::-ms-track {
 .form-content-update {
     // Cropper
     .cropper-view-box { 
-        outline:2px dashed $red-alt; 
+        outline:2px dashed $red; 
     }
     .cropper-point { 
         width: 8px;

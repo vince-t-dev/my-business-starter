@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Breadcrumb, Button, ButtonGroup, Row, Col, InputGroup, Form, Dropdown, Card, Table } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faCheck, faSearch, faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { Breadcrumb, Button, ButtonGroup, Row, Col, InputGroup, Form, Dropdown, Card, Table } from "react-bootstrap";
 import CustomPagination from "../components/Pagination";
 import { useAuth } from "../context/auth";
 
@@ -102,38 +100,6 @@ function Users() {
                                 <option value="3">Pending</option>
                                 <option value="3">Canceled</option>
                             </Form.Select>
-                        </Col>
-                        <Col xs={3} lg={8} className="text-end">
-                            <Dropdown as={ButtonGroup} className="me-2">
-                                <Dropdown.Toggle split as={Button} variant="link" className="text-dark m-0 p-0">
-                                    <span className="icon icon-sm icon-gray">
-                                        <FontAwesomeIcon icon={faSlidersH} />
-                                    </span>
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu className="dropdown-menu-right">
-                                    <Dropdown.Item className="fw-bold text-dark">Show</Dropdown.Item>
-                                    <Dropdown.Item className="d-flex fw-bold">
-                                        10 <span className="icon icon-small ms-auto"><FontAwesomeIcon icon={faCheck} /></span>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item className="fw-bold">20</Dropdown.Item>
-                                    <Dropdown.Item className="fw-bold">30</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                            <Dropdown as={ButtonGroup}>
-                                <Dropdown.Toggle split as={Button} variant="link" className="text-dark m-0 p-0">
-                                    <span className="icon icon-sm icon-gray">
-                                        <FontAwesomeIcon icon={faCog} />
-                                    </span>
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu className="dropdown-menu-right">
-                                    <Dropdown.Item className="fw-bold text-dark">Show</Dropdown.Item>
-                                    <Dropdown.Item className="d-flex fw-bold">
-                                        10 <span className="icon icon-small ms-auto"><FontAwesomeIcon icon={faCheck} /></span>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item className="fw-bold">20</Dropdown.Item>
-                                    <Dropdown.Item className="fw-bold">30</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
                         </Col>
                     </Row>
                 </Form>

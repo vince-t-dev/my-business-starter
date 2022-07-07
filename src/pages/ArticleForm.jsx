@@ -197,7 +197,7 @@ function ArticleForm(props) {
                 {/* isCreateNew ? 
                 <Dropdown>
                     <Dropdown.Toggle as={Button} variant="primary">
-                        {isSaved ? "Save" : "Saving" } { isSaved ? <span className="icon icon-small ms-1"><FontAwesomeIcon icon={faChevronDown} /></span> : <Spinner animation="border" variant="white" size="sm" className="ms-2"/> }
+                        {isSaved ? "Save" : "Saving" } { isSaved ? <span className="icon icon-small ms-1"></span> : <Spinner animation="border" variant="white" size="sm" className="ms-2"/> }
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="dashboard-dropdown dropdown-menu-left mt-1">
                         <Dropdown.Item onClick={e => { submit_content("draft")}}>

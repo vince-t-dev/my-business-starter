@@ -81,6 +81,10 @@
     border-bottom-end-radius: 0 !important;
 }
 
+.border-xs { 
+    border-width: $border-width-xs !important;
+}
+
 
 //
 // Border-radius
@@ -118,6 +122,10 @@
     border-radius: 0 !important;
 }
   
+.rounded-lg {
+    border-radius: $border-radius-lg;
+}
+
 .rounded-xl {
     border-radius: $border-radius-xl;
 }

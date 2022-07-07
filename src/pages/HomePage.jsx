@@ -31,11 +31,9 @@ const RouteWithLoader = ({ component: Component, ...rest }) => {
   	}, [site]);
 
   	return (
-    	//<Route {...rest} render={props => ( 
       	<> 
         	<Preloader show={loaded ? false : true} /> <Component/> 
       	</> 
-    	//)}/>
   	);
 };
 
@@ -59,7 +57,6 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
   	}*/
 
   	return (
-    	//<Route {...rest} render={props => (
       	<>
         	<Preloader show={loaded ? false : true} />
 			<Sidebar />
@@ -69,7 +66,6 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
 				{/*<SomeFooter toggleSettings={toggleSettings} showSettings={showSettings} />*/}
 			</main>
       	</>
-      	//)}>
   );
 };
 

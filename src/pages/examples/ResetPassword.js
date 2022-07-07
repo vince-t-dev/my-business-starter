@@ -1,9 +1,8 @@
 
 import React from "react";
-import { Col, Row, Form, Card, Button, Container, InputGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Col, Row, Form, Card, Button, Container, InputGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { AllRoutes } from "../../routes";
-
 
 export default () => {
     return (
@@ -24,7 +23,6 @@ export default () => {
                                         <Form.Label>Your Email</Form.Label>
                                         <InputGroup>
                                         <InputGroup.Text>
-                                            <FontAwesomeIcon icon={faEnvelope} />
                                         </InputGroup.Text>
                                         <Form.Control autoFocus required type="email" placeholder="example@company.com" />
                                         </InputGroup>
@@ -33,7 +31,6 @@ export default () => {
                                         <Form.Label>Your Password</Form.Label>
                                         <InputGroup>
                                         <InputGroup.Text>
-                                            <FontAwesomeIcon icon={faUnlockAlt} />
                                         </InputGroup.Text>
                                         <Form.Control required type="password" placeholder="Password" />
                                         </InputGroup>
@@ -42,7 +39,6 @@ export default () => {
                                         <Form.Label>Confirm Password</Form.Label>
                                         <InputGroup>
                                         <InputGroup.Text>
-                                            <FontAwesomeIcon icon={faUnlockAlt} />
                                         </InputGroup.Text>
                                         <Form.Control required type="password" placeholder="Confirm Password" />
                                         </InputGroup>

@@ -110,7 +110,7 @@ export default (props) => {
 
 						<Dropdown.Divider />
 
-						<Dropdown.Item onClick={(e) => {handleLogout(e)}} className={isLoaded ? "" : "d-flex"}>
+						<Dropdown.Item onClick={(e) => {handleLogout(e)}}>
 						{ !isLoaded ? <Spinner animation="border" variant="dark" size="sm" className="me-2"/> : <i className="xpri-logout text-danger me-2"></i>}  Logout 
 						</Dropdown.Item>
 					</Dropdown.Menu>

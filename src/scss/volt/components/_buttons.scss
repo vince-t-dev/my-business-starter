@@ -17,7 +17,7 @@
     background-color: transparent;
     border: $btn-border-width solid transparent;
     @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
-    @include transition($btn-transition);
+    //@include transition($btn-transition);
 
     &:hover {
         color: $body-color;
@@ -34,7 +34,6 @@
     &:active,
     &.active {
         //@include box-shadow($btn-active-box-shadow);
-
         &:focus {
             //@include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
         }
@@ -308,11 +307,14 @@
 .btn-primary { 
     border: 0; 
     background: $primary;
-    &:not(.btn-sm):not(.icon) {
+    &:not(.btn-sm,.icon,.w-auto) {
         min-width: 8.75rem;
     }
     i { 
         font-size: 0.6rem;
+    }
+    &:hover,&:focus {
+        background: $primary-active;
     }
 }
 

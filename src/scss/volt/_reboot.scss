@@ -86,7 +86,7 @@ hr:not([size]) {
 //    margin for easier control within type scales as it avoids margin collapsing.
 
 %heading {
-  margin-top: 0; // 1
+  margin-top: 0;
   margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
   font-style: $headings-font-style;
@@ -218,15 +218,6 @@ strong {
 small {
   @include font-size($small-font-size);
 }
-
-
-// Mark
-
-mark {
-  padding: $mark-padding;
-  background-color: $mark-bg;
-}
-
 
 // Sub and Sup
 //

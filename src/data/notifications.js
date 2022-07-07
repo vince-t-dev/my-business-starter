@@ -15,7 +15,7 @@ export default [
         "sender": "Neil Sims",
         "time": "2 hrs ago",
         "link": "#",
-        "message": `You've been assigned a task for "Awesome new project".`
+        "message": `You've been assigned a task for "A new project".`
     },
     {
         "id": 3,

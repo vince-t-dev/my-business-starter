@@ -87,7 +87,7 @@
 }
 
 .input-group-text {
-	font-size: $font-size-sm;
+	font-size: $font-size-lg;
 	transition: $input-transition;
 
 	.xpri-search,.xpri-calendar,.xpri-clock {
@@ -95,23 +95,6 @@
 	}
 }
 
-
-
 .input-group-prepend {
 	margin-right: -2px;
 }
-
-// .focus class is applied dinamycally from theme.js
-
-.focused {
-
-	.input-group-text {
-	    	color: $input-group-addon-focus-color;
-	    	background-color: $input-group-addon-focus-bg;
-	}
-
-	.input-group-shadow{
-		box-shadow:$shadow-input-focus;
-	}
-}
-

@@ -168,7 +168,7 @@ function ArticleDetails(props) {
                                                 </Card>
                                                 ))}
                                             </CardGroup>      
-                                            <div className="border dotted border-primary rounded-3 py-2 text-center">
+                                            <div className="border dotted border-primary rounded-1 py-2 text-center">
                                                 <Button variant="outline-primary" className="rounded-circle" onClick={addCardFields}><i className="xpri-plus"></i></Button>
                                             </div>
                                         </Form.Group>
@@ -207,7 +207,7 @@ function ArticleDetails(props) {
 
                                         <Row className="mt-3">
                                             <Col className="d-flex justify-content-end">
-                                                <Button variant="primary" type="submit" className="shadow">
+                                                <Button variant="primary" type="submit">
                                                     { props.isSaved ? "Save" : "Saving" } { !props.isSaved && <Spinner animation="border" variant="white" size="sm" className="ms-2"/> }
                                                 </Button>
                                             </Col>

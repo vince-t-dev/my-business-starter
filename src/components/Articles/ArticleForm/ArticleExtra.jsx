@@ -43,7 +43,7 @@ function ArticleExtra(props) {
 
                                         <Row className="mt-3">
                                             <Col className="d-flex justify-content-end">
-                                                <Button variant="primary" type="submit" className="shadow">
+                                                <Button variant="primary" type="submit">
                                                     { props.isSaved ? "Save" : "Saving" } { !props.isSaved && <Spinner animation="border" variant="white" size="sm" className="ms-2"/> }
                                                 </Button>
                                             </Col>
